@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -64,11 +64,12 @@
 </head>
 <body class="circuit-bg min-h-screen selection:bg-sky-500 selection:text-white">
 
-  <!-- NAVBAR -->
+  <!-- ==================== NAVIGATION BAR ==================== -->
   <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800/80 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
+        <!-- Logo / Name with Avatar -->
         <a href="#home" class="flex items-center space-x-3 group">
           <div class="w-11 h-11 rounded-xl p-0.5 bg-gradient-to-tr from-sky-400 to-amber-400 glow-cyan transition-transform group-hover:scale-105 overflow-hidden">
             <img src="./profile.jpg" 
@@ -84,6 +85,7 @@
           </div>
         </a>
 
+        <!-- Desktop Navigation Links -->
         <nav class="hidden lg:flex items-center space-x-1">
           <a href="#home" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-colors">Home</a>
           <a href="#about" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-colors">About</a>
@@ -96,19 +98,23 @@
           <a href="#contact" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-colors">Contact</a>
         </nav>
 
+        <!-- CTA & Resume Button -->
         <div class="hidden sm:flex items-center space-x-3">
-          <a href="#certificates" class="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-950/40 border border-amber-500/30 rounded-lg hover:bg-amber-500 hover:text-slate-950 transition-all shadow-sm">
-            View Certificate
+          <a href="#certificates" class="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-950/40 border border-amber-500/30 rounded-lg hover:bg-amber-500 hover:text-slate-950 transition-all shadow-sm flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Verified Certificate
           </a>
           <a href="#resume" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-sky-400 bg-sky-950/40 border border-sky-500/30 rounded-lg hover:bg-sky-500 hover:text-slate-950 transition-all shadow-sm">
             View Resume
           </a>
         </div>
 
+        <!-- Mobile Menu Toggle Button -->
         <div class="lg:hidden flex items-center">
-          <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+          <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
         </div>
@@ -116,26 +122,35 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950/95 px-4 pt-3 pb-6 space-y-2">
-      <a href="#home" class="block px-3 py-2 rounded-md text-base text-slate-200">Home</a>
-      <a href="#about" class="block px-3 py-2 rounded-md text-base text-slate-200">About Me</a>
-      <a href="#education" class="block px-3 py-2 rounded-md text-base text-slate-200">Education</a>
-      <a href="#skills" class="block px-3 py-2 rounded-md text-base text-slate-200">Skills</a>
-      <a href="#experience" class="block px-3 py-2 rounded-md text-base text-slate-200">Experience</a>
-      <a href="#projects" class="block px-3 py-2 rounded-md text-base text-slate-200">Projects</a>
-      <a href="#certificates" class="block px-3 py-2 rounded-md text-base text-amber-400">Certificates</a>
-      <a href="#industrial" class="block px-3 py-2 rounded-md text-base text-slate-200">Industrial Exposure</a>
-      <a href="#resume" class="block px-3 py-2 rounded-md text-base text-slate-200">Resume</a>
-      <a href="#contact" class="block px-3 py-2 rounded-md text-base text-sky-400">Contact</a>
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
+      <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Home</a>
+      <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">About Me</a>
+      <a href="#education" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Education</a>
+      <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Technical Skills</a>
+      <a href="#experience" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Internship Experience</a>
+      <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Projects</a>
+      <a href="#achievements" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Achievements</a>
+      <a href="#certificates" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-amber-400 hover:bg-slate-800">Certificates & Verification</a>
+      <a href="#industrial" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Industrial Exposure</a>
+      <a href="#resume" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-sky-400">Resume</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-sky-400 hover:bg-slate-800">Contact Me</a>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ==================== 1. HERO SECTION ==================== -->
   <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden relative">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/3 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl"></div>
+    </div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
+        <!-- Left Content -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-emerald-500/30 text-xs font-mono-code text-emerald-400">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span>Certified Solar Installation & Maintenance Technician</span>
@@ -150,9 +165,10 @@
           </p>
 
           <p class="text-slate-400 text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Pursuing Electrical Engineering at <span class="text-white font-semibold">Government College of Engineering, Yavatmal</span>. Certified in Solar Installation & Maintenance by <span class="text-amber-400 font-semibold">Shree Gajanan Electrical Works</span> (MSEDCL Authorised Solar Vendor) under the supervision of <span class="text-white font-semibold">Mr. Shubham R. Pote</span>.
+            Pursuing Electrical Engineering at <span class="text-white font-semibold">Government College of Engineering, Yavatmal</span>. Certified in Solar Installation and Maintenance by <span class="text-amber-400 font-semibold">Shree Gajanan Electrical Works</span> (MSEDCL Authorised Solar Vendor) under the supervision of <span class="text-white">Mr. Shubham R. Pote</span>.
           </p>
 
+          <!-- Core Stat Highlights -->
           <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
             <div class="glass-card p-3 rounded-xl text-center border-slate-800">
               <span class="block text-2xl font-bold text-sky-400 font-mono-code">4th Yr</span>
@@ -168,54 +184,86 @@
             </div>
           </div>
 
+          <!-- Buttons -->
           <div class="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
-            <a href="#certificates" class="px-6 py-3 rounded-xl font-semibold text-sm bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-lg hover:scale-[1.02] transition-all font-bold">
+            <a href="#certificates" class="px-6 py-3 rounded-xl font-semibold text-sm bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-lg hover:shadow-amber-500/25 hover:scale-[1.02] transition-all flex items-center gap-2 font-bold">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
               View Official Certificate
             </a>
-            <a href="#experience" class="px-6 py-3 rounded-xl font-semibold text-sm bg-slate-900 border border-slate-700 text-slate-200 hover:text-white transition-all">
+            <a href="#experience" class="px-6 py-3 rounded-xl font-semibold text-sm bg-slate-900 border border-slate-700 text-slate-200 hover:border-sky-400 hover:text-white transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               Internship Experience
             </a>
-            <a href="#resume" class="px-6 py-3 rounded-xl font-semibold text-sm bg-sky-500/10 border border-sky-500/30 text-sky-400 hover:bg-sky-500 hover:text-slate-950 transition-all">
+            <a href="#resume" class="px-6 py-3 rounded-xl font-semibold text-sm bg-sky-500/10 border border-sky-500/30 text-sky-400 hover:bg-sky-500 hover:text-slate-950 transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               View Resume
             </a>
           </div>
+
         </div>
 
-        <!-- Hero Photo Card -->
+        <!-- Right Visual Showcase / Profile Avatar Card with ACTUAL PHOTO -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative w-80 sm:w-96">
+            
+            <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 via-amber-400 to-emerald-500 rounded-3xl blur-lg opacity-40 animate-pulse"></div>
+            
             <div class="relative glass-card rounded-3xl p-6 border-slate-700/60 overflow-hidden shadow-2xl">
+              
+              <!-- Card Header -->
               <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
-                <span class="text-xs font-mono-code text-emerald-400 font-bold">MSEDCL AUTHORISED VENDOR TECH</span>
-                <span class="text-xs font-mono-code text-slate-400">YAVATMAL</span>
+                <div class="flex items-center space-x-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <span class="text-xs font-mono-code text-emerald-400 flex items-center gap-1 font-semibold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> MSEDCL VENDOR TECH
+                </span>
               </div>
 
-              <div class="relative mx-auto w-64 h-72 sm:w-72 sm:h-80 rounded-2xl overflow-hidden border-2 border-sky-400/50 shadow-2xl">
+              <!-- Profile Photo Frame -->
+              <div class="relative mx-auto w-64 h-72 sm:w-72 sm:h-80 rounded-2xl overflow-hidden border-2 border-sky-400/50 shadow-2xl group">
                 <img src="./profile.jpg" 
                      alt="Prakash Bapu Redekar" 
-                     class="w-full h-full object-cover object-top" />
+                     class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+
+                <!-- Gradient Overlay for Contrast -->
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+
+                <!-- Overlay Info -->
                 <div class="absolute bottom-3 left-3 right-3 text-left">
-                  <span class="text-base font-bold text-white block">Prakash B. Redekar</span>
-                  <span class="text-xs text-sky-300 font-mono-code block">Electrical Engineering (B.Tech 4th Year)</span>
-                  <span class="text-[11px] text-amber-300 font-mono-code block">Govt. College of Engg., Yavatmal</span>
+                  <span class="text-base font-bold text-white block drop-shadow-md">Prakash B. Redekar</span>
+                  <span class="text-xs text-sky-300 font-mono-code block drop-shadow">Electrical Engineering (B.Tech 4th Year)</span>
+                  <span class="text-[11px] text-amber-300 font-mono-code block mt-0.5">Govt. College of Engg., Yavatmal</span>
+                </div>
+
+                <div class="absolute top-3 right-3 bg-emerald-400 text-slate-950 text-[10px] font-bold px-2 py-0.5 rounded-full font-mono-code shadow-md flex items-center gap-1">
+                  ● Verified
                 </div>
               </div>
 
+              <!-- Quick Info List -->
               <div class="mt-5 space-y-2 text-xs text-slate-300">
-                <div class="flex justify-between p-2 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/70 border border-slate-800">
                   <span class="text-slate-400">Internship Firm</span>
                   <span class="text-amber-300 font-medium">Shree Gajanan Electrical Works</span>
                 </div>
-                <div class="flex justify-between p-2 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/70 border border-slate-800">
                   <span class="text-slate-400">Supervisor</span>
                   <span class="text-white font-medium">Mr. Shubham R. Pote (Contractor)</span>
                 </div>
-                <div class="flex justify-between p-2 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/70 border border-slate-800">
                   <span class="text-slate-400">Location</span>
                   <span class="text-slate-200">Beed / Yavatmal, MH</span>
                 </div>
               </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 font-mono-code">
+                <span>GST: 27EWPP9808K1ZA</span>
+                <span class="text-emerald-400">ACTIVE PROFILE</span>
+              </div>
+
             </div>
           </div>
         </div>
@@ -224,9 +272,10 @@
     </div>
   </section>
 
-  <!-- ABOUT ME -->
+  <!-- ==================== 2. ABOUT ME ==================== -->
   <section id="about" class="py-20 bg-slate-950/60 relative border-t border-slate-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Profile Overview</span>
         <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">About Me</h2>
@@ -234,35 +283,57 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        
         <div class="lg:col-span-7 glass-card rounded-2xl p-8 border-slate-800 flex flex-col justify-between">
           <div class="space-y-6">
+            
             <div class="border-l-4 border-amber-400 pl-4 py-1">
               <h3 class="text-xl font-bold text-white">Career Objective</h3>
               <p class="text-slate-300 text-sm italic mt-1 leading-relaxed">
-                "To work with an organization where can learn new skills and increase my abilities for the organizational goals as well as myself."
+                "To work with an organization where I can learn new skills and increase my abilities for the organizational goals as well as myself."
               </p>
             </div>
 
             <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
               <p>
-                I am <strong class="text-white">Prakash Bapu Redekar</strong>, a dedicated final-year Electrical Engineering student at <strong class="text-sky-400">Government College of Engineering, Yavatmal</strong>.
+                I am <strong class="text-white">Prakash Bapu Redekar</strong>, a dedicated final-year Electrical Engineering student at <strong class="text-sky-400">Government College of Engineering, Yavatmal</strong>, with certified hands-on experience in solar photovoltaic systems and electrical contracting operations.
               </p>
               <p>
                 Under the direct supervision of licensed electrical contractor <strong class="text-white">Mr. Shubham R. Pote</strong> at <strong class="text-amber-400">Shree Gajanan Electrical Works</strong> (MSEDCL Authorised Solar Vendor, Yavatmal), I actively participated in solar installation, mounting, string wiring, inverter synchronization, electrical safety protocols, and system maintenance routines.
               </p>
+              <p class="text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-emerald-400 font-bold">Academic Balance:</span> Undertook field engineering assignments strategically on Saturdays, Sundays, and official holidays to ensure seamless progress toward my B.Tech degree while acquiring high-value industrial competency.
+              </p>
             </div>
 
+            <!-- Strengths Tags -->
             <div>
               <h4 class="text-xs font-mono-code uppercase tracking-wider text-slate-400 mb-3">Core Work Strengths</h4>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1.5 rounded-lg bg-sky-950/50 border border-sky-500/30 text-sky-300 text-xs font-medium">Multitasking & Smart Working</span>
-                <span class="px-3 py-1.5 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 text-xs font-medium">Honest & Punctual</span>
-                <span class="px-3 py-1.5 rounded-lg bg-amber-950/50 border border-amber-500/30 text-amber-300 text-xs font-medium">Good Communication Skill</span>
+                <span class="px-3 py-1.5 rounded-lg bg-sky-950/50 border border-sky-500/30 text-sky-300 text-xs font-medium flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Multitasking & Smart Working
+                </span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 text-xs font-medium flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Honest & Punctual
+                </span>
+                <span class="px-3 py-1.5 rounded-lg bg-amber-950/50 border border-amber-500/30 text-amber-300 text-xs font-medium flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Good Communication Skill
+                </span>
               </div>
             </div>
+
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <span>Specialization: Electrical & Renewable Solar PV</span>
+            <a href="#contact" class="text-sky-400 hover:text-sky-300 font-medium">Let's Connect &rarr;</a>
           </div>
         </div>
 
+        <!-- Personal Details Card with Photo Thumbnail -->
         <div class="lg:col-span-5 glass-card rounded-2xl p-8 border-slate-800 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-4 mb-6 pb-4 border-b border-slate-800">
@@ -271,128 +342,1127 @@
                    class="w-16 h-16 rounded-xl object-cover object-top border-2 border-sky-400/50 shadow" />
               <div>
                 <h3 class="text-lg font-bold text-white">Personal Details</h3>
-                <span class="text-xs text-slate-400 font-mono-code">Prakash Bapu Redekar</span>
+                <span class="text-xs text-slate-400 font-mono-code">Candidate ID: Prakash B. Redekar</span>
               </div>
             </div>
 
-            <div class="space-y-3 text-xs sm:text-sm">
-              <div class="flex justify-between py-1 border-b border-slate-800">
+            <div class="space-y-3.5 text-xs sm:text-sm">
+              <div class="flex justify-between py-1.5 border-b border-slate-800">
+                <span class="text-slate-400">Full Name</span>
+                <span class="text-white font-medium">Prakash Bapu Redekar</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-slate-800">
                 <span class="text-slate-400">Father's Name</span>
                 <span class="text-slate-200">Bapu Redekar</span>
               </div>
-              <div class="flex justify-between py-1 border-b border-slate-800">
+              <div class="flex justify-between py-1.5 border-b border-slate-800">
                 <span class="text-slate-400">Email</span>
                 <a href="mailto:prakashredekaroffice@gmail.com" class="text-sky-400 hover:underline">prakashredekaroffice@gmail.com</a>
               </div>
-              <div class="flex justify-between py-1 border-b border-slate-800">
+              <div class="flex justify-between py-1.5 border-b border-slate-800">
                 <span class="text-slate-400">Phone</span>
                 <a href="tel:+919834335624" class="text-slate-200 font-mono-code">+91 9834335624</a>
               </div>
-              <div class="flex justify-between py-1 border-b border-slate-800">
+              <div class="flex justify-between py-1.5 border-b border-slate-800">
                 <span class="text-slate-400">Marital Status</span>
                 <span class="text-slate-200">Unmarried</span>
               </div>
-              <div class="py-1">
+              <div class="py-1.5">
                 <span class="text-slate-400 block mb-1">Permanent Address</span>
                 <span class="text-slate-200 leading-relaxed block bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                  At Post Bhrammgaon, Hajipur, Asti, Beed, Maharashtra
+                  At Post Bhrammgaon, Hajipur, Ashti, Beed, Maharashtra
                 </span>
               </div>
             </div>
           </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 text-center">
+            <span class="inline-block text-[11px] font-mono-code text-emerald-400">VERIFIED WITH ORIGINAL DOCUMENTS</span>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATES SECTION -->
+  <!-- ==================== 3. EDUCATION ==================== -->
+  <section id="education" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Academic Milestones</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Educational Qualifications</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
+        
+        <!-- B.Tech -->
+        <div class="relative pl-8 md:pl-12 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-sky-400 border-4 border-slate-950 group-hover:scale-125 transition-transform glow-cyan"></div>
+          
+          <div class="glass-card rounded-2xl p-6 sm:p-8 border-slate-800 transition-all hover:border-sky-500/40">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-code bg-sky-950 text-sky-300 border border-sky-500/30">
+                PURSUING (4TH YEAR / FINAL YEAR)
+              </span>
+              <span class="text-xs font-mono-code text-slate-400">Degree Program</span>
+            </div>
+            
+            <h3 class="text-xl sm:text-2xl font-bold text-white">B. Tech in Electrical Engineering</h3>
+            <p class="text-sky-400 font-medium text-sm mt-1">Govt. College of Engineering, Yavatmal</p>
+            
+            <p class="text-slate-300 text-sm mt-4 leading-relaxed">
+              Curriculum covers Power Systems, Electrical Machines, Power Electronics, Renewable Solar PV Generation, High Voltage Engineering, Switchgear & Protection, and Industrial Wiring.
+            </p>
+          </div>
+        </div>
+
+        <!-- HSC -->
+        <div class="relative pl-8 md:pl-12 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-400 border-4 border-slate-950 group-hover:scale-125 transition-transform glow-amber"></div>
+          
+          <div class="glass-card rounded-2xl p-6 sm:p-8 border-slate-800 transition-all hover:border-amber-500/40">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-code bg-amber-950 text-amber-300 border border-amber-500/30">
+                PASSED OUT
+              </span>
+              <span class="text-sm font-bold font-mono-code text-amber-400 bg-amber-950/40 px-3 py-1 rounded-lg border border-amber-500/20">67.17%</span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white">Higher Secondary Certificate (HSC)</h3>
+            <p class="text-slate-400 text-sm mt-1">Maharashtra State Board</p>
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              Physics, Chemistry, and Mathematics foundation providing analytical grounding for advanced electrical theory.
+            </p>
+          </div>
+        </div>
+
+        <!-- SSC -->
+        <div class="relative pl-8 md:pl-12 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-400 border-4 border-slate-950 group-hover:scale-125 transition-transform"></div>
+          
+          <div class="glass-card rounded-2xl p-6 sm:p-8 border-slate-800 transition-all hover:border-emerald-500/40">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-code bg-emerald-950 text-emerald-300 border border-emerald-500/30">
+                PASSED OUT
+              </span>
+              <span class="text-sm font-bold font-mono-code text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-lg border border-emerald-500/20">75.00%</span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white">Secondary School Certificate (SSC)</h3>
+            <p class="text-slate-400 text-sm mt-1">Maharashtra State Board</p>
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              Secured distinction with 75.00% across core mathematics and natural sciences.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 4. TECHNICAL SKILLS ==================== -->
+  <section id="skills" class="py-20 bg-slate-950/60 relative border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Competencies</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Technical Skills</h2>
+        <p class="text-slate-400 text-sm mt-2">Verified field proficiencies documented in resume & certified training</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Solar Panel Installation</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Mounting structure alignment, module clamping, roof anchor fixation, and mechanical stability for residential & commercial arrays.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Solar PV Systems</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            On-grid and off-grid PV topology, string configurations, DC bus optimization, and power generation monitoring.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Inverter Installation</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            DC-to-AC solar inverter placement, AC/DC disconnect wiring, grid synchronization, and surge protective device setup.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Basic Electrical Wiring</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Conduit routing, cable crimping, MC4 connector assembly, distribution box panel wiring, and grounding connections.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Site Inspection</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Pre-installation rooftop feasibility, shading analysis, structural load evaluation, and cable pathway planning.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Renewable Energy Basics</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Solar irradiance, thermal coefficients, net metering concepts, clean energy transition principles, and sustainability.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Troubleshooting</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Open-circuit voltage (Voc) testing, short-circuit current (Isc) checking, identifying loose terminals, and inverter error diagnostics.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Safety & Maintenance</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Rooftop fall protection protocols, electrical PPE compliance, earth pit resistance checks, and scheduled cleaning regimens.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. INTERNSHIP EXPERIENCE ==================== -->
+  <section id="experience" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Practical Training</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Internship Experience</h2>
+        <p class="text-slate-400 text-sm mt-2">Verified field training at Shree Gajanan Electrical Works (MSEDCL Authorised Solar Vendor)</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border-slate-800 glow-cyan relative overflow-hidden">
+          
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-sky-400 via-amber-400 to-emerald-400"></div>
+
+          <div class="flex flex-wrap items-start justify-between gap-4 border-b border-slate-800 pb-6 mb-8">
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono-code bg-emerald-950 text-emerald-300 border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  CERTIFIED PERIOD: 1 JAN 2026 – 30 JUN 2026
+                </span>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-mono-code bg-slate-900 text-slate-300 border border-slate-700">
+                  Weekends & Official Holidays
+                </span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white">Solar Installation Intern / Part-Time Technician</h3>
+              <p class="text-lg text-amber-400 font-semibold mt-1">Shree Gajanan Electrical Works</p>
+              <p class="text-xs text-slate-400 mt-0.5">Electrical & Solar Contractor • Cotton Market Chowk, Dhamangaon Road, Yavatmal - 445001</p>
+            </div>
+            
+            <div class="text-left sm:text-right">
+              <span class="text-xs text-slate-400 block font-mono-code">Supervising Contractor</span>
+              <span class="text-sm font-bold text-white">Mr. Shubham R. Pote</span>
+              <span class="text-[11px] text-sky-400 font-mono-code block mt-0.5">GST: 27EWPP9808K1ZA</span>
+            </div>
+          </div>
+
+          <h4 class="text-sm font-mono-code text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            Key Responsibilities, Learnings & Scope of Training:
+          </h4>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-400 mt-2 flex-shrink-0"></span>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <strong class="text-white">Solar System Setup & Mounting:</strong> Actively participated in residential and commercial solar panel installation and mounting procedures.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-amber-400 mt-2 flex-shrink-0"></span>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <strong class="text-white">Wiring & Inverter Synchronization:</strong> Gained hands-on experience in solar PV string wiring, inverter connections, and AC/DC panel termination.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></span>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <strong class="text-white">Electrical Safety Protocols:</strong> Thoroughly trained in industrial electrical safety standards, earthing inspection, and high-altitude rooftop safety.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-400 mt-2 flex-shrink-0"></span>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <strong class="text-white">System Maintenance & Troubleshooting:</strong> Supported senior technicians in periodic maintenance, wiring inspection, and voltage testing.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-amber-400 mt-2 flex-shrink-0"></span>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <strong class="text-white">Rooftop Solar Deployments:</strong> Helped execute end-to-end rooftop installations and site preparation across residential clients in Yavatmal.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></span>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <strong class="text-white">Customer & Project Coordination:</strong> Assisted in customer coordination, explaining operating basics and monitoring power output.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+            <span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              Internship Certificate Awarded for Dedication, Discipline & Contribution
+            </span>
+            <button onclick="openCertificateModal('cert_internship')" class="text-sky-400 hover:text-sky-300 font-mono-code underline">
+              View Original Certificate Details &rarr;
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. PROJECTS ==================== -->
+  <section id="projects" class="py-20 bg-slate-950/60 relative border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Practical Implementation</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Key Projects & Field Deployments</h2>
+        <p class="text-slate-400 text-sm mt-2">Real installations and engineering operations executed during field assignments</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card rounded-2xl p-6 sm:p-7 border-slate-800 flex flex-col justify-between group hover:border-sky-500/40 transition-all">
+          <div>
+            <div class="h-44 rounded-xl bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden mb-5">
+              <div class="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 mb-2 glow-cyan">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              </div>
+              <span class="text-xs font-mono-code text-sky-300">ROOFTOP_SOLAR_PV</span>
+              <span class="text-[10px] text-slate-500 mt-1">Residential Scale System</span>
+            </div>
+
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-500/30">INSTALLATION</span>
+              <span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-slate-900 text-slate-400">RESIDENTIAL</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Rooftop Solar PV Installation & String Wiring</h3>
+            
+            <p class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
+              Execution of residential rooftop solar PV systems. Involved mounting aluminium railed structures, securely clamping photovoltaic modules, making series/parallel string connections, and routing DC conduits into combiner boxes.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+            <span>Tools: MC4, Crimper, Clamp Meter</span>
+            <span class="text-sky-400 font-mono-code">Completed</span>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 sm:p-7 border-slate-800 flex flex-col justify-between group hover:border-amber-500/40 transition-all">
+          <div>
+            <div class="h-44 rounded-xl bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden mb-5">
+              <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-2 glow-amber">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <span class="text-xs font-mono-code text-amber-300">COMMERCIAL_INVERTER</span>
+              <span class="text-[10px] text-slate-500 mt-1">Grid-Tie & Conversion</span>
+            </div>
+
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-500/30">COMMERCIAL</span>
+              <span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-slate-900 text-slate-400">INVERTERS</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">Commercial Solar Panel & Inverter Synchronization</h3>
+            
+            <p class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
+              Assisted senior technicians on larger commercial solar arrays. Supported the integration of high-efficiency inverters, ensuring correct phase balancing, AC/DC disconnection switches, and robust earthing rod installations.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+            <span>Focus: Grid Connection & Phase Sync</span>
+            <span class="text-amber-400 font-mono-code">Commissioned</span>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 sm:p-7 border-slate-800 flex flex-col justify-between group hover:border-emerald-500/40 transition-all">
+          <div>
+            <div class="h-44 rounded-xl bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden mb-5">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <span class="text-xs font-mono-code text-emerald-300">MAINTENANCE_OPS</span>
+              <span class="text-[10px] text-slate-500 mt-1">Fault Isolation & Testing</span>
+            </div>
+
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30">MAINTENANCE</span>
+              <span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-slate-900 text-slate-400">DIAGNOSTICS</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Site Inspection & Preventive Maintenance Protocol</h3>
+            
+            <p class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
+              Carried out periodic troubleshooting procedures on operational installations. Measured string voltages, inspected wire insulation degradation, tightened terminal lugs, and ensured client satisfaction during service visits.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+            <span>Testing: Multimeter & Visual Safety</span>
+            <span class="text-emerald-400 font-mono-code">Ongoing</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. ACHIEVEMENTS & ACTIVITIES ==================== -->
+  <section id="achievements" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Milestones</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Achievements & Activities</h2>
+        <p class="text-slate-400 text-sm mt-2">Verified achievements and professional activities from academic and field records</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Awarded Internship Certificate</h3>
+              <span class="text-xs text-amber-400">Field Certification</span>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Formally certified for successful completion of Solar Installation and Maintenance training by Shree Gajanan Electrical Works (MSEDCL Authorised Solar Vendor).
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Govt. Engineering Merit</h3>
+              <span class="text-xs text-sky-400">Academic Merit</span>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Secured admission into Government College of Engineering, Yavatmal for B.Tech in Electrical Engineering based on competitive merit.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Customer & Project Coordination</h3>
+              <span class="text-xs text-emerald-400">Field Role</span>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Demonstrated exemplary communication and client handling during on-site installations, coordinating between licensed contractors and customers.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. CERTIFICATES GALLERY (WITH CLICK-TO-VIEW) ==================== -->
   <section id="certificates" class="py-20 bg-slate-950/60 relative border-t border-slate-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="text-amber-400 font-mono-code text-xs uppercase tracking-widest bg-amber-950/50 px-3 py-1 rounded-full border border-amber-500/30">Verified Credentials</span>
         <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Certificates & Educational Records</h2>
+        <p class="text-slate-400 text-sm mt-2">Click any certificate below to view the official verified document preview</p>
         <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-sky-400 mx-auto mt-4 rounded-full"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-card rounded-2xl p-6 border-amber-500/40 cursor-pointer hover:border-amber-400 transition-all group glow-amber" onclick="openCertificateModal()">
-          <div class="h-44 rounded-xl bg-gradient-to-br from-amber-950/40 to-slate-950 border border-amber-500/30 flex flex-col items-center justify-center p-4 mb-4">
+        
+        <!-- FEATURED: Internship Certificate Card -->
+        <div class="glass-card rounded-2xl p-6 border-amber-500/40 cursor-pointer hover:border-amber-400 transition-all group relative overflow-hidden glow-amber" onclick="openCertificateModal('cert_internship')">
+          
+          <div class="absolute top-2 right-2 bg-emerald-500 text-slate-950 font-bold text-[10px] font-mono-code px-2 py-0.5 rounded shadow">
+            OFFICIAL CERTIFICATE
+          </div>
+
+          <div class="h-44 rounded-xl bg-gradient-to-br from-amber-950/40 via-slate-900 to-slate-950 border border-amber-500/30 flex flex-col items-center justify-center p-4 relative overflow-hidden mb-4 group-hover:scale-[1.02] transition-transform">
+            <div class="w-12 h-12 rounded-full bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-amber-400 mb-2 shadow">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
             <span class="text-xs font-mono-code text-amber-300 font-bold text-center">SHREE GAJANAN ELECTRICAL WORKS</span>
             <span class="text-[11px] text-slate-400 mt-1">MSEDCL Authorised Solar Vendor</span>
-            <span class="mt-3 text-[10px] text-amber-300 bg-amber-950/80 px-2.5 py-0.5 rounded border border-amber-500/30 font-bold">Click to Open Certificate Replica &rarr;</span>
+            <span class="mt-2 text-[10px] text-amber-300 bg-amber-950/80 px-2.5 py-0.5 rounded border border-amber-500/30 flex items-center gap-1 font-bold">
+              Click to Open Certificate Preview &rarr;
+            </span>
           </div>
-          <h3 class="text-lg font-bold text-white group-hover:text-amber-400">Internship Certificate (Solar PV)</h3>
+
+          <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Internship Certificate (Solar PV)</h3>
           <p class="text-slate-400 text-xs mt-1">Supervised by Mr. Shubham R. Pote, Electrical Contractor</p>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex justify-between text-xs">
-            <span class="text-slate-400">Period</span>
-            <span class="text-amber-400 font-mono-code">1 Jan 2026 – 30 Jun 2026</span>
+          
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Duration</span>
+            <span class="text-amber-400 font-medium font-mono-code">1 Jan 2026 – 30 Jun 2026</span>
           </div>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 border-slate-800">
-          <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 flex flex-col items-center justify-center p-4 mb-4">
-            <span class="text-xs font-mono-code text-sky-300 font-semibold">B.TECH ELECTRICAL ENGINEERING</span>
+        <!-- Degree Enrollment -->
+        <div class="glass-card rounded-2xl p-6 border-slate-800 cursor-pointer hover:border-sky-400/50 transition-all group" onclick="openCertificateModal('cert_degree')">
+          <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden mb-4 group-hover:bg-slate-850 transition-colors">
+            <div class="w-12 h-12 rounded-full bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 mb-2">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            </div>
+            <span class="text-xs font-mono-code text-sky-300 font-semibold">B.TECH DEGREE PROGRESS</span>
             <span class="text-[11px] text-slate-400 mt-1">Govt. College of Engg. Yavatmal</span>
+            <span class="mt-2 text-[10px] text-sky-400 bg-sky-950/80 px-2.5 py-0.5 rounded border border-sky-500/20">Click to View</span>
           </div>
-          <h3 class="text-lg font-bold text-white">B.Tech Degree Progress</h3>
-          <p class="text-slate-400 text-xs mt-1">Government College of Engineering, Yavatmal (4th Year)</p>
+
+          <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">B.Tech in Electrical Engineering</h3>
+          <p class="text-slate-400 text-xs mt-1">Government College of Engineering, Yavatmal</p>
+          
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Status</span>
+            <span class="text-sky-400 font-medium font-mono-code">4th Year (Pursuing)</span>
+          </div>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 border-slate-800">
-          <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 flex flex-col items-center justify-center p-4 mb-4">
-            <span class="text-xs font-mono-code text-emerald-300 font-semibold">MAHARASHTRA STATE BOARDS</span>
+        <!-- Board Certifications -->
+        <div class="glass-card rounded-2xl p-6 border-slate-800 cursor-pointer hover:border-emerald-400/50 transition-all group" onclick="openCertificateModal('cert_boards')">
+          <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden mb-4 group-hover:bg-slate-850 transition-colors">
+            <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-2">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <span class="text-xs font-mono-code text-emerald-300 font-semibold">STATE BOARD CERTIFICATIONS</span>
             <span class="text-[11px] text-slate-400 mt-1">HSC: 67.17% | SSC: 75.00%</span>
+            <span class="mt-2 text-[10px] text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded border border-emerald-500/20">Click to View</span>
           </div>
-          <h3 class="text-lg font-bold text-white">Secondary & Higher Secondary</h3>
+
+          <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Secondary & Higher Secondary Board</h3>
           <p class="text-slate-400 text-xs mt-1">Maharashtra State Secondary & Higher Secondary Board</p>
+          
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Results</span>
+            <span class="text-emerald-400 font-medium font-mono-code">Distinction & First Class</span>
+          </div>
         </div>
+
       </div>
+
     </div>
   </section>
 
-  <!-- MODAL -->
-  <div id="certificate-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4">
-    <div class="glass-card max-w-2xl w-full rounded-2xl p-6 sm:p-8 border-slate-700 relative shadow-2xl">
-      <button onclick="closeCertificateModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+  <!-- ==================== 9. INDUSTRIAL EXPOSURE ==================== -->
+  <section id="industrial" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Practical Exposure</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Industrial & Field Exposure</h2>
+        <p class="text-slate-400 text-sm mt-2">Core industrial standards, tools, and methodologies experienced in the field</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
 
-      <div class="bg-white text-slate-900 rounded-xl p-6 border-4 border-slate-300 text-center font-sans">
-        <h3 class="text-xl font-black uppercase text-slate-950">SHREE GAJANAN ELECTRICAL WORKS</h3>
-        <p class="text-xs font-bold text-slate-700">Electrical & Solar Contractor • Cotton Market Chowk, Yavatmal - 445001</p>
-        <p class="text-[11px] text-slate-600">(Under the supervision of Mr. Shubham R. Pote, Electrical Contractor)</p>
-        <div class="text-[11px] font-mono text-slate-700 border-t border-b border-slate-300 py-1 my-2">
-          GST: 27EWPP9808K1ZA | MSEDCL AUTHORISED SOLAR VENDOR | ☎ +91 73978 71765
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="text-amber-400 mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">MSEDCL Authorised Vendor Standards</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Practical exposure under Shree Gajanan Electrical Works (MSEDCL Authorised Solar Vendor) adhering to Maharashtra State Electricity Distribution Company Limited technical guidelines for solar PV integration.
+          </p>
         </div>
 
-        <h4 class="text-lg font-black uppercase tracking-wider text-slate-900 my-3">INTERNSHIP CERTIFICATE</h4>
-        <p class="text-xs sm:text-sm text-slate-800 leading-relaxed">
-          This is to certify that <strong class="text-slate-950 underline font-bold">Prakash Bapu Redekar</strong> has successfully completed an internship at <strong>Shree Gajanan Electrical Works</strong> during the period from <strong>1 January 2026 to 30 June 2026</strong> (undertaken on Saturdays, Sundays, and officially declared holidays).
-        </p>
-        <p class="text-xs text-slate-700 mt-2">
-          During this internship, the candidate actively participated in Solar Installation and Maintenance Work, gaining valuable hands-on experience in solar system setup, wiring, electrical safety, and system maintenance procedures.
-        </p>
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="text-sky-400 mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Solar Inverters & Synchronization</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Hands-on placement and wiring of solar inverters, understanding Maximum Power Point Tracking (MPPT) operations, string voltage thresholds, AC distribution boards, and safety isolation switches.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="text-emerald-400 mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Electrical Safety & Maintenance Protocols</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            High adherence to industrial safety: insulated tools, Personal Protective Equipment (PPE), lockout/tagout procedures during wiring, and grounding electrode installation.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 10. LANGUAGES & HOBBIES ==================== -->
+  <section id="languages" class="py-20 bg-slate-950/60 relative border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Personal Attributes</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Languages & Strengths</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         
-        <div class="mt-6 pt-3 border-t border-slate-300 flex justify-between text-xs text-slate-800 text-left">
-          <div>Place: Yavatmal</div>
-          <div class="text-right">
-            <strong>Authorized Signatory (Mr. Shubham R. Pote)</strong>
-            <p class="text-[11px]">Electrical Contractor, Shree Gajanan Electrical Works</p>
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border-slate-800">
+          <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+            Key Strengths (From Resume)
+          </h3>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-sm font-bold text-white block">Multitasking & Smart Working</span>
+              <p class="text-xs text-slate-400 mt-1">Balancing engineering coursework at GCoE Yavatmal while simultaneously handling certified weekend/holiday technician duties at Shree Gajanan Electrical Works.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-sm font-bold text-white block">Honest & Punctual</span>
+              <p class="text-xs text-slate-400 mt-1">Committed to reliable project timelines, ethical electrical safety standards, and transparent client coordination.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-sm font-bold text-white block">Good Communication Skill</span>
+              <p class="text-xs text-slate-400 mt-1">Proven ability to coordinate seamlessly with supervising electrical contractors, senior technicians, and solar customers.</p>
+            </div>
           </div>
         </div>
+
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border-slate-800 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+              Languages & Interests
+            </h3>
+
+            <div class="mb-6">
+              <span class="text-xs font-mono-code text-slate-400 uppercase tracking-wider block mb-3">Languages for Communication</span>
+              <div class="space-y-2">
+                <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 border border-slate-800 text-xs">
+                  <span class="text-white font-medium">Marathi</span>
+                  <span class="text-emerald-400 font-mono-code">Native / Primary</span>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 border border-slate-800 text-xs">
+                  <span class="text-white font-medium">Hindi</span>
+                  <span class="text-sky-400 font-mono-code">Fluent Professional</span>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 border border-slate-800 text-xs">
+                  <span class="text-white font-medium">English</span>
+                  <span class="text-amber-400 font-mono-code">Technical / Working</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-xs font-mono-code text-slate-400 uppercase tracking-wider block mb-3">Technical Hobbies & Passions</span>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">Renewable Solar Technology</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">Electrical Circuit Wiring</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">Clean Energy Solutions</span>
+                <span class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">Practical Field Work</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-500 font-mono-code">
+            LOCATION: BEED / YAVATMAL • MAHARASHTRA
+          </div>
+        </div>
+
       </div>
 
-      <div class="mt-4 flex justify-end">
-        <button onclick="closeCertificateModal()" class="px-5 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-white">Close</button>
+    </div>
+  </section>
+
+  <!-- ==================== 11. RESUME SECTION ==================== -->
+  <section id="resume" class="py-20 relative border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Curriculum Vitae</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Official Resume</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
       </div>
+
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl glass-card border-slate-800 mb-6">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+            <span class="text-xs font-mono-code text-slate-300">DOCUMENT: Prakash_Bapu_Redekar_Resume</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="window.print()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              Print / Save PDF
+            </button>
+            <a href="mailto:prakashredekaroffice@gmail.com?subject=Inquiry%20regarding%20Prakash%20Redekar%20Resume" class="px-4 py-2 rounded-xl text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 transition-colors flex items-center gap-1.5 font-bold">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Contact Candidate
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-8 sm:p-12 shadow-2xl text-slate-300 text-sm space-y-8 font-sans">
+          
+          <div class="border-b border-slate-700 pb-6 text-center sm:text-left sm:flex sm:justify-between sm:items-start">
+            <div>
+              <span class="text-xs uppercase font-mono-code tracking-widest text-sky-400 block mb-1">RESUME</span>
+              <h3 class="text-3xl font-extrabold text-white tracking-tight">Prakash Bapu Redekar</h3>
+              <p class="text-slate-400 text-sm mt-1">Electrical Engineering Student & Solar Installation Technician</p>
+            </div>
+            <div class="mt-4 sm:mt-0 text-center sm:text-right text-xs space-y-1 font-mono-code text-slate-300">
+              <p>+91 9834335624</p>
+              <p class="text-sky-400">prakashredekaroffice@gmail.com</p>
+              <p class="text-slate-400">Beed, Maharashtra</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 font-mono-code mb-2 pb-1 border-b border-slate-800">
+              OBJECTIVE
+            </h4>
+            <p class="text-slate-300 leading-relaxed text-sm">
+              To work with an organization where can learn new skills and increase my abilities for the organizational goals as well as myself.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 font-mono-code mb-3 pb-1 border-b border-slate-800">
+              EDUCATIONAL QUALIFICATIONS
+            </h4>
+            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
+              <li><strong class="text-white">Pursuing B. Tech 4th Year Electrical Engineering</strong> at Govt. College of Engineering, Yavatmal</li>
+              <li>Passed out <strong class="text-white">HSC 67.17%</strong></li>
+              <li>Passed out <strong class="text-white">SSC 75.00%</strong></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 font-mono-code mb-3 pb-1 border-b border-slate-800">
+              TECHNICAL SKILLS
+            </h4>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Solar Panel Installation</div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Solar PV Systems</div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Basic Electrical Wiring</div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Inverter Installation</div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Site Inspection</div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Renewable Energy Basics</div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Troubleshooting</div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">• Safety & Maintenance</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 font-mono-code mb-2 pb-1 border-b border-slate-800">
+              WORK EXPERIENCE & INTERNSHIP
+            </h4>
+            <div class="mb-2">
+              <span class="font-bold text-white text-base">Solar Installation Intern / Part-Time Technician</span>
+              <div class="text-xs text-amber-300 font-mono-code mt-0.5">
+                At Shree Gajanan Electrical works (MSEDCL Authorised Solar Vendor) | Duration: [12 march 2025] – Present (Certified: 1 Jan 2026 – 30 Jun 2026)
+              </div>
+            </div>
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 list-disc list-inside mt-3">
+              <li>Assisted in residential and commercial solar panel installation projects.</li>
+              <li>Worked on solar PV system mounting, wiring, and inverter connections.</li>
+              <li>Supported senior technicians during site inspection and system maintenance.</li>
+              <li>Helped in installation of rooftop solar systems and electrical connections.</li>
+              <li>Learned basic troubleshooting and safety procedures for solar systems.</li>
+              <li>Assisted in customer handling and project coordination during installations.</li>
+              <li>Worked with tools and equipment used in solar installation projects.</li>
+              <li>Gained practical knowledge of renewable energy and solar power systems.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 font-mono-code mb-3 pb-1 border-b border-slate-800">
+              STRENGTH & HOBBIES
+            </h4>
+            <ul class="space-y-1 text-sm text-slate-300 list-disc list-inside">
+              <li>Multitasking & Smart Working</li>
+              <li>Honest & Punctual</li>
+              <li>Good Communication skill</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-slate-800 pt-6">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 font-mono-code mb-3">
+              PERSONAL DETAILS
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 text-xs">
+              <div><span class="text-slate-400">Father's Name:</span> <span class="text-white font-medium">Bapu Redekar</span></div>
+              <div><span class="text-slate-400">Marital Status:</span> <span class="text-white font-medium">Unmarried</span></div>
+              <div class="sm:col-span-2"><span class="text-slate-400">Address:</span> <span class="text-white font-medium">At Post Bhrammgaon, Hajipur, Asti, Beed, Maharashtra</span></div>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-800 pt-6 flex justify-between items-end text-xs text-slate-400">
+            <div>
+              <p>Place: Beed / Yavatmal, Maharashtra</p>
+            </div>
+            <div class="text-right">
+              <span class="font-bold text-white block">(Prakash Redekar)</span>
+              <span class="text-[10px] text-slate-500 font-mono-code">Candidate Signature</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 12. CONTACT SECTION ==================== -->
+  <section id="contact" class="py-20 bg-slate-950/70 relative border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sky-400 font-mono-code text-xs uppercase tracking-widest bg-sky-950/50 px-3 py-1 rounded-full border border-sky-500/20">Communication</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">Contact & Inquiries</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="glass-card rounded-2xl p-6 border-slate-800 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <span class="text-xs font-mono-code text-slate-400 uppercase tracking-wider block">Direct Phone</span>
+              <a href="tel:+919834335624" class="text-base sm:text-lg font-bold text-white hover:text-sky-400 transition-colors font-mono-code mt-0.5 block">
+                +91 9834335624
+              </a>
+              <p class="text-xs text-slate-400 mt-1">Available for calls and WhatsApp</p>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-6 border-slate-800 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <span class="text-xs font-mono-code text-slate-400 uppercase tracking-wider block">Official Email</span>
+              <a href="mailto:prakashredekaroffice@gmail.com" class="text-sm sm:text-base font-bold text-white hover:text-amber-400 transition-colors mt-0.5 block break-all">
+                prakashredekaroffice@gmail.com
+              </a>
+              <p class="text-xs text-slate-400 mt-1">Direct inquiries & opportunities</p>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-6 border-slate-800 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <span class="text-xs font-mono-code text-slate-400 uppercase tracking-wider block">Current Location</span>
+              <span class="text-sm font-semibold text-white mt-0.5 block">
+                At Post Bhrammgaon, Hajipur, Asti, Beed, Maharashtra
+              </span>
+              <p class="text-xs text-slate-400 mt-1">Academic Base: GCoE Yavatmal, Maharashtra</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="glass-card rounded-2xl p-8 border-slate-800">
+            <h3 class="text-xl font-bold text-white mb-2">Send a Message</h3>
+            <p class="text-xs text-slate-400 mb-6">Fill in the form to reach out directly</p>
+
+            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono-code text-slate-400 uppercase mb-1">Your Name</label>
+                  <input type="text" id="sender-name" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono-code text-slate-400 uppercase mb-1">Your Email</label>
+                  <input type="email" id="sender-email" required placeholder="john@example.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition-colors">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 uppercase mb-1">Subject</label>
+                <input type="text" id="sender-subject" required placeholder="Electrical / Solar Engineering Opportunity" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 uppercase mb-1">Message</label>
+                <textarea id="sender-message" rows="4" required placeholder="Hello Prakash, I reviewed your solar installation internship certificate and experience..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition-colors"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-sky-500 to-blue-600 text-white hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg glow-cyan">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                Send Direct Message
+              </button>
+            </form>
+
+            <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs text-center">
+              Thank you! Your message draft has been generated and ready to send to prakashredekaroffice@gmail.com.
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <img src="./profile.jpg" 
+             alt="Prakash Redekar" 
+             class="w-7 h-7 rounded-lg object-cover object-top border border-sky-400/50" />
+        <span class="text-sm font-bold text-white">Prakash Bapu Redekar</span>
+        <span class="text-xs text-slate-500 font-mono-code">• Electrical & Solar PV</span>
+      </div>
+
+      <p class="text-xs text-slate-400 text-center sm:text-right">
+        Verified with Shree Gajanan Electrical Works Certificate & Resume • GCoE Yavatmal
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL VIEWER FOR CERTIFICATES ==================== -->
+  <div id="certificate-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 overflow-y-auto">
+    <div class="glass-card max-w-2xl w-full rounded-2xl p-6 sm:p-8 border-slate-700 relative shadow-2xl my-8">
+      
+      <button onclick="closeCertificateModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/60 hover:bg-slate-800 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div id="modal-content" class="space-y-4">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end gap-3">
+        <button onclick="closeCertificateModal()" class="px-5 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white transition-colors">
+          Close Preview
+        </button>
+      </div>
+
     </div>
   </div>
 
+  <!-- ==================== SCRIPT ==================== -->
   <script>
-    function openCertificateModal() {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      hamburgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    function openCertificateModal(type) {
+      const modalContent = document.getElementById('modal-content');
+      
+      if (type === 'cert_internship') {
+        modalContent.innerHTML = `
+          <div class="bg-white text-slate-900 rounded-xl p-6 sm:p-8 border-4 border-slate-300 shadow-2xl font-sans relative">
+            
+            <div class="border-b-2 border-slate-800 pb-4 text-center">
+              <div class="flex items-center justify-center gap-2 mb-1">
+                <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-950 uppercase">SHREE GAJANAN ELECTRICAL WORKS</span>
+              </div>
+              <p class="text-xs sm:text-sm font-bold text-slate-700">Electrical & Solar Contractor</p>
+              <p class="text-xs text-slate-600">Cotton Market Chowk, Dhamangaon Road, Yavatmal - 445001</p>
+              <p class="text-[11px] text-slate-600 italic">(Under the supervision of Mr. Shubham R. Pote, Electrical Contractor)</p>
+              
+              <div class="flex flex-wrap items-center justify-between text-[11px] font-mono mt-2 pt-2 border-t border-slate-300 px-2 text-slate-700">
+                <span><strong>GST No.:</strong> 27EWPP9808K1ZA</span>
+                <span class="font-bold text-amber-700">MSEDCL AUTHORISED SOLAR VENDOR</span>
+                <span>✉ sge.solarworks@gmail.com</span>
+                <span>☎ +91 73978 71765</span>
+              </div>
+            </div>
+
+            <div class="text-center py-5">
+              <h2 class="text-xl sm:text-2xl font-black uppercase tracking-wider text-slate-900 inline-block border-b-2 border-amber-600 pb-1">
+                INTERNSHIP CERTIFICATE
+              </h2>
+            </div>
+
+            <div class="space-y-3 text-xs sm:text-sm text-slate-800 leading-relaxed text-center">
+              <p>
+                This is to certify that <strong class="text-base text-slate-950 underline decoration-amber-500 font-bold">Prakash Bapu Redekar</strong> has successfully completed an internship at <strong class="text-slate-950">Shree Gajanan Electrical Works</strong>.
+              </p>
+              <p>
+                The internship was completed during the period from <strong class="text-slate-950 font-bold">1 January 2026 to 30 June 2026</strong>, with work being undertaken only on Saturdays, Sundays, and officially declared holidays.
+              </p>
+              <p>
+                During this internship, the candidate actively participated in <strong class="text-slate-950 font-bold">Solar Installation and Maintenance Work</strong>, gaining valuable hands-on experience in solar system setup, wiring, electrical safety, and system maintenance procedures.
+              </p>
+              <p class="italic text-slate-700 pt-1">
+                We appreciate their dedication, discipline, and contribution throughout the training period and wish them success in future professional endeavors.
+              </p>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-slate-300 flex items-end justify-between text-xs text-slate-800">
+              <div>
+                <p><strong>Place:</strong> Yavatmal</p>
+                <p class="mt-1"><strong>Status:</strong> Completed & Verified</p>
+              </div>
+
+              <div class="text-right">
+                <div class="font-mono text-[10px] text-amber-700 font-bold mb-1">[AUTHENTIC CERTIFIED]</div>
+                <p class="font-bold text-slate-950">Authorized Signatory (Mr. Shubham R. Pote)</p>
+                <p class="text-[11px] text-slate-700">Electrical Contractor</p>
+                <p class="text-[11px] font-semibold text-slate-900">Shree Gajanan Electrical Works</p>
+              </div>
+            </div>
+
+          </div>
+        `;
+      } else if (type === 'cert_degree') {
+        modalContent.innerHTML = `
+          <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 space-y-4">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-sky-400"></span>
+              B.Tech in Electrical Engineering (4th Year)
+            </h3>
+            <p class="text-xs text-sky-400 font-mono-code">Government College of Engineering, Yavatmal</p>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
+              <p><strong>Status:</strong> Currently Pursuing Final Year (4th Year).</p>
+              <p><strong>Core Disciplines:</strong> Power System Analysis, Electrical Machines, High Voltage Engineering, Solar Photovoltaic Systems, Switchgear, and Industrial Power Electronics.</p>
+              <p><strong>Academic Integration:</strong> Completed certified electrical contracting internship on weekends and official holidays concurrently with degree studies.</p>
+            </div>
+          </div>
+        `;
+      } else {
+        modalContent.innerHTML = `
+          <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 space-y-4">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              Maharashtra State Board Credentials
+            </h3>
+            <p class="text-xs text-emerald-400 font-mono-code">Secondary & Higher Secondary Education</p>
+            <div class="space-y-3 text-xs sm:text-sm text-slate-300 pt-2 border-t border-slate-800">
+              <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 flex justify-between">
+                <span>Higher Secondary Certificate (HSC)</span>
+                <span class="font-bold text-amber-400 font-mono-code">67.17% (Passed Out)</span>
+              </div>
+              <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 flex justify-between">
+                <span>Secondary School Certificate (SSC)</span>
+                <span class="font-bold text-emerald-400 font-mono-code">75.00% (Passed Out)</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
       document.getElementById('certificate-modal').classList.remove('hidden');
     }
+
     function closeCertificateModal() {
       document.getElementById('certificate-modal').classList.add('hidden');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('sender-name').value;
+      const email = document.getElementById('sender-email').value;
+      const subject = document.getElementById('sender-subject').value;
+      const message = document.getElementById('sender-message').value;
+
+      document.getElementById('form-feedback').classList.remove('hidden');
+      window.location.href = `mailto:prakashredekaroffice@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + name + " (" + email + ")\n\n" + message)}`;
     }
   </script>
 </body>
 </html>
+
